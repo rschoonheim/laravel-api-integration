@@ -13,6 +13,7 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->sets([
         SetList::DEAD_CODE,
-        \Rector\Laravel\Set\LaravelSetList::LARAVEL_CODE_QUALITY,
+        SetList::CODE_QUALITY,
+        SetList::PHP_80,
     ]);
 };
