@@ -92,10 +92,12 @@ class MakeHttpIntegration extends Command
         /**
          * Generate the client based on the provided name and base URL.
          */
-        $source = $this->generateHttpClientSource($name, $baseUrl);
-        $destination = base_path("app/Integration/Http/{$name}/HttpClient.php");
+        \Storage::disk('api-integration')->put(
+            "Http/{$name}/HttpClient.php",
+            $this->generateHttpClientSource($name, $baseUrl)
+        );
 
-        file_put_contents($destination, $source);
+        $this->output->success('Http integration created successfully.');
 
         return self::SUCCESS;
     }
