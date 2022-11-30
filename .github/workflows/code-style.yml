@@ -46,7 +46,7 @@ jobs:
               git push
             fi
   testing:
-    depends-on: codestyle
+    needs: codestyle
     testing:
       runs-on: ${{ matrix.operating-system }}
       strategy:
