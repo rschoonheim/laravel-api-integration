@@ -27,7 +27,9 @@
         "laravel/pint": "v1.2.0",
         "orchestra/testbench": "^7.15",
         "phpunit/phpunit": "^9.5",
-        "johnkary/phpunit-speedtrap": "^4.0"
+        "johnkary/phpunit-speedtrap": "^4.0",
+        "rector/rector": "^0.14.1",
+        "driftingly/rector-laravel": "^0.11.14"
     },
     "extra": {
         "laravel": {
