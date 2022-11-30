@@ -21,11 +21,9 @@ class LaravelApiIntegrationServiceProvider extends PackageServiceProvider
 
     public function boot()
     {
-        Config::set("filesystems.disks.api-integration", [
-            "driver" => "local",
-            "root" => base_path("app/Integration"),
+        Config::set('filesystems.disks.api-integration', [
+            'driver' => 'local',
+            'root' => base_path('app/Integration'),
         ]);
     }
-
-
 }

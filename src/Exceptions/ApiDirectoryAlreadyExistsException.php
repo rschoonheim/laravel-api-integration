@@ -8,5 +8,4 @@ use Exception;
 
 class ApiDirectoryAlreadyExistsException extends Exception
 {
-
 }
