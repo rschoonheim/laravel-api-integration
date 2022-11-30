@@ -20,10 +20,20 @@ installation command. This command will create a `Integrations` folder
 located in your `app` folder.
 
 ```bash
-$  php artisan api-integration:install
+$  php artisan integration:install
 ```
 
 ## Using the package
+
+
+### Creating a new HTTP integration
+To create a new HTTP integration you must run the following Artisan
+command:
+```bash
+$ php artisan integration:http:create
+```
+It will ask you for the name and the base URL of the API. It will generate the client in
+the `app/Integrations/Http/{name}` folder. 
 
 
 

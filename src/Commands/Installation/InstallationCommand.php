@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class InstallationCommand extends Command
 {
-    protected $signature = 'api-integration:install';
+    protected $signature = 'integration:install';
 
     protected $description = 'Prepare your Laravel application for API integration';
 
