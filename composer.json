@@ -15,8 +15,8 @@
         }
     },
     "require": {
-        "spatie/laravel-package-tools": "^1.13",
-        "orchestra/testbench": "^7.15"
+        "php": "^7.4",
+        "spatie/laravel-package-tools": "^1.13"
     },
     "autoload-dev": {
         "psr-4": {
@@ -24,6 +24,7 @@
         }
     },
     "require-dev": {
+        "orchestra/testbench": "^7.15",
         "phpunit/phpunit": "^9.5",
         "johnkary/phpunit-speedtrap": "^4.0"
     },
