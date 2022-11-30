@@ -12,12 +12,7 @@ jobs:
     strategy:
       matrix:
         operating-system: ['ubuntu-latest', 'windows-latest', 'macos-latest']
-        php-versions: ['7.4', '8.0', '8.1']
-        phpunit-versions: ['latest']
-        include:
-          - operating-system: 'ubuntu-latest'
-            php-versions: '7.2'
-            phpunit-versions: '8.5.21'
+        php-versions: ['8.0', '8.1']
     steps:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
