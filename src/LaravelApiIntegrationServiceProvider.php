@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-namespace Rschoonheim\LaravelApiIntegrationBoilerplate;
+namespace Rschoonheim\LaravelApiIntegration;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
