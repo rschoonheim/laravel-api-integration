@@ -32,6 +32,9 @@ jobs:
       - name: Install Laravel pint as global dependency
         run: composer install
 
+      - name: Run Rector
+        run: vendor/bin/rector process
+
       - name: run pint
         run: vendor/bin/pint
 
