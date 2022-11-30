@@ -24,6 +24,7 @@
         }
     },
     "require-dev": {
+        "laravel/pint": "v1.2.2",
         "orchestra/testbench": "^7.15",
         "phpunit/phpunit": "^9.5",
         "johnkary/phpunit-speedtrap": "^4.0"

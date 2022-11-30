@@ -11,9 +11,6 @@ class LaravelApiIntegrationServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
-
-
-
         $package->name('laravel-api-integration-boilerplate');
     }
 }

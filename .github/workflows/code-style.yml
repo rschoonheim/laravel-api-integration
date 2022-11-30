@@ -30,10 +30,10 @@ jobs:
             ${{ runner.os }}-php-
 
       - name: Install Laravel pint as global dependency
-        run: composer global require laravel/installer
+        run: composer install
 
       - name: run pint
-        run: pint
+        run: vendor/bin/pint
 
       - name: Commit changes
         run: |
