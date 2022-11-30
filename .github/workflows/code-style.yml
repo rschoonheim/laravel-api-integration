@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Code Style
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "develop", "feature/*" ]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   codestyle:
@@ -15,23 +15,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
 
-    - name: action-git-diff-suggestions
-      # You may pin to the exact commit or the version.
-      # uses: getsentry/action-git-diff-suggestions@8c75946d0d7bbe80a92cf3579d544321512c30b7
-      uses: getsentry/action-git-diff-suggestions@v1
-      with:
-        message: "Fixing code style..."
+      - name: Install Laravel pint as global dependency
+        run: composer install
+
+      - name: Run Rector
+        run: vendor/bin/rector process
+
+      - name: run pint
+        run: vendor/bin/pint
+
+      - name: Commit changes
+        run: |
+            if [[ -n "$(git status --porcelain)" ]]; then
+              git config --global user.name "GitHub Actions"
+              git config --global user.email "actions@github.com"
+              git commit -a -m "Update code style"
+              git push
+            fi
