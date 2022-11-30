@@ -18,8 +18,7 @@ class MakeHttpIntegrationTest extends TestCase
             ->expectsQuestion('What is the name of your integration?', 'Test')
             ->expectsQuestion('What is the base URL for your integration?', 'https://example.com')
             ->expectsOutput('Creating a new HTTP integration.')
-            ->expectsOutputToContain("[OK] Http integration created successfully.")
+            ->expectsOutputToContain('[OK] Http integration created successfully.')
             ->assertExitCode(0);
     }
-
 }
