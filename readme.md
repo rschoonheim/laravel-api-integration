@@ -4,14 +4,26 @@
 
 [![Master](https://github.com/rschoonheim/laravel-api-integration/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/rschoonheim/laravel-api-integration/actions/workflows/release.yml)
 
+This package is a great starting point for integrating APIs into
+your Laravel application. This package has an opinionated structure
+that is designed to be generated and modified using Artisan commands.
 
-This package provides a starting point for integrating with APIs into 
-your Laravel application. It provides an opinionated structure for
-integrating with APIs, and provides a set of tools to help you finish
-the integration quickly.
-
-## Installation
-
+## Installing the package
+Install the package using the following Composer command:
 ```bash
 $ composer require rschoonheim/laravel-api-integration
 ```
+
+### Preparing your application
+Before you can start using this package you need to run the
+installation command. This command will create a `Integrations` folder
+located in your `app` folder.
+
+```bash
+$  php artisan api-integration:install
+```
+
+## Using the package
+
+
+
