@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rschoonheim\LaravelApiIntegration;
 
+use Illuminate\Support\Facades\Config;
 use Rschoonheim\LaravelApiIntegration\Commands\Installation\InstallationCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -17,4 +18,14 @@ class LaravelApiIntegrationServiceProvider extends PackageServiceProvider
             InstallationCommand::class,
         ]);
     }
+
+    public function boot()
+    {
+        Config::set("filesystems.disks.api-integration", [
+            "driver" => "local",
+            "root" => base_path("app/Integration"),
+        ]);
+    }
+
+
 }
