@@ -29,9 +29,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-
 
+      - name: Install Laravel pint as global dependency
+        run: composer global require laravel/installer
+
+      - name: run pint
+        run: pint
+
       - name: Commit changes
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git commit -a -m "Update code style"
-          git push
+            if [[ -n "$(git status --porcelain)" ]]; then
+              git config --global user.name "GitHub Actions"
+              git config --global user.email "actions@github.com"
+              git commit -a -m "Update code style"
+              git push
+            fi
