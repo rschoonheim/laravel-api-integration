@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Rschoonheim\LaravelApiIntegration;
 
 use Spatie\LaravelPackageTools\Package;
