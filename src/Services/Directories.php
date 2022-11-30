@@ -35,5 +35,4 @@ class Directories
             $this->filesystem->deleteDirectory($name);
         }
     }
-
 }
