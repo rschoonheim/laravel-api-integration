@@ -25,7 +25,7 @@ class MakeHttpIntegration extends Command
          */
         try {
             Directories::createApiDirectory('Http');
-        } catch (ApiDirectoryAlreadyExistsException $exception) {
+        } catch (ApiDirectoryAlreadyExistsException) {
         }
 
         /**
@@ -53,18 +53,17 @@ class MakeHttpIntegration extends Command
             goto askName;
         }
 
-        if (preg_match('/^[0-9]/', $name)) {
+        if (preg_match('/^\d/', $name)) {
             $this->output->error('Your integration name cannot start with a number.');
             goto askName;
         }
 
         try {
             Directories::createApiDirectory("Http/{$name}");
-        } catch (ApiDirectoryAlreadyExistsException $exception) {
+        } catch (ApiDirectoryAlreadyExistsException) {
             $this->output->error("An integration with the name '{$name}' already exists.");
             goto askName;
         }
-
 
         /**
          * Ask the user for the base URL for the integration.
@@ -80,19 +79,18 @@ class MakeHttpIntegration extends Command
             goto askBaseUrl;
         }
 
-        if (!filter_var($baseUrl, FILTER_VALIDATE_URL)) {
+        if (! filter_var($baseUrl, FILTER_VALIDATE_URL)) {
             $this->output->error('Your base URL must be a valid URL.');
             goto askBaseUrl;
         }
 
-        if (!preg_match('/^https:\/\//', $baseUrl)) {
+        if (! preg_match('/^https:\/\//', $baseUrl)) {
             $this->output->error('Your base URL must be a valid HTTPS URL.');
             goto askBaseUrl;
         }
 
         /**
          * Generate the client based on the provided name and base URL.
-         *
          */
         $source = $this->generateHttpClientSource($name, $baseUrl);
         $destination = base_path("app/Integration/Http/{$name}/HttpClient.php");
@@ -124,7 +122,7 @@ class :name extends Factory
 EOT;
 
         $client = str_replace(':name', $name, $client);
+
         return str_replace(':baseUrl', $baseUrl, $client);
     }
-
 }
