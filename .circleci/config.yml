@@ -30,9 +30,15 @@ jobs:
 workflows:
   development:
     jobs:
+      - rector-php:
+          filters:
+            branches:
+              ignore: master
       - code-style:
-        filters:
-          branches:
-            ignore: master
+          requires: 
+            - rector-php
+          filters:
+            branches:
+              ignore: master
     
     
