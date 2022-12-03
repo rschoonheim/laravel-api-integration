@@ -14,7 +14,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "66:d6:4f:7a:b5:ac:e0:cd:a8:f5:b6:06:a1:26:9a:d8"
+            - "30:5d:f1:8e:66:fb:9c:2c:c0:f1:b8:15:39:a4:d8:e9"
       - checkout
       - run: "pint"
       - run: "git-commit"
