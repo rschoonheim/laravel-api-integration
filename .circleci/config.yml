@@ -7,7 +7,6 @@ executors:
   phpqc:
     docker:
       - image: ghcr.io/rschoonheim/phpqc:latest
-
 jobs:
   code-style:
     executor: phpqc
