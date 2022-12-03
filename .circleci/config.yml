@@ -12,8 +12,10 @@ jobs:
   code-style:
     executor: phpqc
     steps:
+      - add_ssh_keys
       - checkout
       - run: "pint"
+      - run: "git status"
 
 workflows:
   development:
