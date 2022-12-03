@@ -15,8 +15,15 @@ jobs:
       - add_ssh_keys
       - checkout
       - run: "pint"
-      - run: "git status"
-      
+      - run:
+          name: Commit to GitHub
+          command: |
+            git config user.email "phpqc@circleci.com"
+            git config user.name "CircleCI Job"
+            git checkout master
+            git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
+            git push origin master
+
 
 workflows:
   development:
