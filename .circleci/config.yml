@@ -12,7 +12,9 @@ jobs:
   code-style:
     executor: phpqc
     steps:
-      - add_ssh_keys
+      - add_ssh_keys:
+          fingerprints:
+            - "66:d6:4f:7a:b5:ac:e0:cd:a8:f5:b6:06:a1:26:9a:d8"
       - checkout
       - run: "pint"
       - run: "git-commit"
