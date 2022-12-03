@@ -15,7 +15,7 @@ jobs:
       - add_ssh_keys
       - checkout
       - run: "pint"
-      - run: "git commit -a -m '[PHPQC] Code quality changes [skip ci] && git push origin master' "
+      - run: "git-commit"
 
 workflows:
   development:
