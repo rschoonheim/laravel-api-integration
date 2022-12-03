@@ -26,7 +26,6 @@ jobs:
       - checkout
       - run: "pint"
       - run: "git-commit"
-
 workflows:
   development:
     jobs:
